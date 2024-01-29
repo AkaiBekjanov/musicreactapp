@@ -2,8 +2,10 @@ import { Input } from "@mui/material";
 import tracksList from "../../assets/trackList";
 import { Track } from "../../components/Track/Track";
 import style from "./MainPage.module.scss";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AudioContext } from "../../context/AudioContext";
 export const MainPage = () => {
+  const { handleAudioChange, currentTrack } = useContext(AudioContext);
   const [trackName, setTrackName] = useState("");
   const loweredTrackName = trackName.toString().toLowerCase();
   function handleChange(value) {
